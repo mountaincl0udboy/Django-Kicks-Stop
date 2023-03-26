@@ -12,9 +12,6 @@
 						<div class="form-field">
 							<input required class="form-control" type="email" name="email" placeholder="Email..">
 						</div>
-					</div>
-
-					<div id="shipping-info">
 						<hr>
 						<p>Shipping Information:</p>
 						<hr>
@@ -25,13 +22,10 @@
 							<input class="form-control" type="text" name="city" placeholder="City..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="state" placeholder="State..">
-						</div>
-						<div class="form-field">
 							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="country" placeholder="Zip code..">
+							<input class="form-control" type="text" name="country" placeholder="Country..">
 						</div>
 					</div>
 
@@ -81,9 +75,7 @@
 		 }
 
 		if (shipping == 'False' && user != 'AnonymousUser'){
-
 				document.getElementById('form-wrapper').classList.add("hidden");
-
 			    document.getElementById('payment-info').classList.remove("hidden");
 		}
 
@@ -111,14 +103,12 @@
 			var shippingInfo = {
 				'address':null,
 				'city':null,
-				'state':null,
 				'zipcode':null,
 			}
 
 			if (shipping != 'False'){
 	    		shippingInfo.address = form.address.value
 		    	shippingInfo.city = form.city.value
-		    	shippingInfo.state = form.state.value
 		    	shippingInfo.zipcode = form.zipcode.value
 	    	}
 
@@ -142,9 +132,13 @@
 	    	})
 	    	.then((response) => response.json())
 	    	.then((data) => {
-				  console.log('Success:', data);
-				  alert('Transaction completed');
-				  window.location.href = "{% url 'store' %}"
+				console.log('Success:', data);
+				alert('Transaction completed');
+
+				cart = {}
+				document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
+				window.location.href = "{% url 'mainpage' %}"
 
 				})
 	    }
