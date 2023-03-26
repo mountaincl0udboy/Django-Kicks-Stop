@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
@@ -97,7 +98,13 @@ def processOrder(request):
 
 	return JsonResponse('Payment submitted..', safe=False)
 def about(request):
-    return render(request, 'about.html')
+    contact_list = Product.objects.all()
+    paginator = Paginator(contact_list, 3)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'about.html', {'page_obj': page_obj, 'title': 'О сайте'})
+
 
 def pageNotFound(request, exception):
     template = loader.get_template('404.html')
