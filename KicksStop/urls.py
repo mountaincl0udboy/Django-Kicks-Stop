@@ -9,6 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),
     path('', include('sneakers.urls')),
+    path('api/v1/sneaker/', SneakerAPIList.as_view()),
+    path('api/v1/sneaker/<int:pk>/', SneakerAPIUpdate.as_view()),
+    path('api/v1/sneakerdelete/<int:pk>/', SneakerAPIDestroy.as_view()),
 ]
 
 if settings.DEBUG:
