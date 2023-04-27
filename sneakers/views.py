@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import AnonymousUser
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect
+from django.shortcuts import render,get_object_or_404, redirect
 from django.http import JsonResponse, HttpResponse
 import json
 import datetime
@@ -85,8 +85,9 @@ def mainpage(request):
 	products = Product.objects.all()
 	context = {'products': products, 'cartItems': cartItems}
 	return render(request, 'mainpage.html', context)
-
-
+def detail_page(request,id):
+	product=get_object_or_404(Product,pk=id)
+	return render(request, 'detail.html',{'product':product})
 def cart(request):
 	data = cartData(request)
 
@@ -133,6 +134,7 @@ def updateItem(request):
 		orderItem.delete()
 
 	return JsonResponse('Item was added', safe=False)
+
 
 
 def processOrder(request):
@@ -192,7 +194,7 @@ def pageForbidden(request, exception):
 class SneakerAPIList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    # permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAdminOrReadOnly, )
 
 
 class SneakerAPIUpdate(generics.RetrieveUpdateAPIView):
