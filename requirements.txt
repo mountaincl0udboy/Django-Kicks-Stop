@@ -22,3 +22,4 @@ yarg==0.1.9
 django-debug-toolbar~=3.8.1
 django-simple-captcha
 djangorestframework
+gunicorn==20.1.0
