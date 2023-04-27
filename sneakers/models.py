@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 class Product(models.Model):
 	name = models.CharField(max_length=200, verbose_name="Название кроссовок")
 	price = models.FloatField(verbose_name="Цена")
+	size = models.FloatField(verbose_name="Размер")
+	description = models.CharField(max_length=200, verbose_name="Описание")
 	image = models.ImageField(null=True, blank=True, upload_to="images/")
+	descriptionImage = models.ImageField(null=True, blank=True, upload_to="images/")
 	def __str__(self):
 		return self.name
 
@@ -14,6 +17,7 @@ def imageURL(self):
 	except:
 		url = ''
 	return url
+
 class Customer(models.Model):
 	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Пользователь")
 	name = models.CharField(max_length=200, null=True, verbose_name="Имя пользователя")
