@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'root',
         'PASSWORD': 'AenaPIkD6kaJjspHNJ1D',
-        'HOST': '0.0.0.0',
+        'HOST': 'containers-us-west-71.railway.app',
         'PORT': '7246',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
