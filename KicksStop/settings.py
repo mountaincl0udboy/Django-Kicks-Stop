@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-CSRF_TRUSTED_ORIGINS = ['django-kicks-stop-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://django-kicks-stop-production.up.railway.app']
 
 LANGUAGE_CODE = 'ru'
 
