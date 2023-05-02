@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'KicksStop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_db',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': 'AenaPIkD6kaJjspHNJ1D',
+        'HOST': '0.0.0.0',
+        'PORT': '7246',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
