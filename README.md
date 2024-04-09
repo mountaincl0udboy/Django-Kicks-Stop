@@ -27,4 +27,4 @@ Visit [http://localhost:3000](http://localhost:3000) in your web browser to star
 
 
 Contact
-If you have any questions or about Django Kicks Stop, please feel free to contact.
+If you have any questions about Django Kicks Stop, please feel free to contact.
